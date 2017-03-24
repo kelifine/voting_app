@@ -1,0 +1,1 @@
+var GitHubStrategy = require('passport-github2').Strategy;
