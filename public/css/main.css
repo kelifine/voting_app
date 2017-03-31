@@ -4,4 +4,23 @@
 
 .main {
     width: 70%;
+    background-color: #dcdee2;
+    border-radius: 10px;
+    padding: 5%;
+    margin: auto;
 }
+
+.options {
+    width: 40%;
+    float: left !important;
+}
+
+.chart {
+    width: 40%;
+    float: right !important;
+}
+
+ul {
+    margin-right: 2% !important;
+}
+
