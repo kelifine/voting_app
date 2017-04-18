@@ -35,6 +35,7 @@
     "html-colors": "0.0.3",
     "jquery": "^3.2.1",
     "jsdom": "^9.12.0",
+    "mongodb": "^2.2.26",
     "mongoose": "^4.7.2",
     "passport": "^0.3.2",
     "passport-github": "^1.0.0",
