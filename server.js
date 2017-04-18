@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '/node_modules')));
 
 
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGOLAB_URI);
 mongoose.Promise = global.Promise;
 
 
