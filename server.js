@@ -8,7 +8,6 @@ var path = require('path');
 var app = express();
 var bodyParser = require('body-parser');
 var routes = require(path.join(__dirname, '/files/routes.js'));
-require('dotenv').load();
 require(path.join(__dirname,'/files/passport/passport.js'))(passport);
 
 
