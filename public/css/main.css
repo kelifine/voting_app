@@ -10,17 +10,30 @@
     margin: auto;
 }
 
-.options {
-    width: 40%;
-    float: left !important;
-}
 
 .chart {
-    width: 40%;
+    width: 60%;
     float: right !important;
+}
+
+.choices {
+    width: 20%;
+    float: left !important;
 }
 
 ul {
     margin-right: 2% !important;
 }
 
+#charts {
+    margin-top: 2% !important;
+}
+
+#vote {
+    margin-top: 5%;
+}
+
+#novote {
+    color: red;
+    margin-top: 2% !important;
+}

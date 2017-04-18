@@ -1,0 +1,12 @@
+include loggedin.pug
+
+div(class="main")
+    form(action="/newchart" method="post")
+        div(class="title form-group")
+            label(for="title") Title:
+            input(type="title" class="form-control" id="title" placeholder="Title" required onkeyup="checkField()" name="title")
+        div(class="options form-group")
+            label(for="options") Options:
+            input(type="text" class="form-control" placeholder="Ex: cats, dogs, horses" id="options" required onkeyup="checkField()" name="options")
+        div(class="submit form-group")
+            button(class="btn btn-default" type="submit" id="submitchart" disabled) Submit

@@ -6,12 +6,14 @@ var passport = require('passport');
 var session = require('express-session');
 var path = require('path');
 var app = express();
+var bodyParser = require('body-parser');
 var routes = require(path.join(__dirname, '/files/routes.js'));
 require('dotenv').load();
-require(path.join(__dirname,'/files/passport.js'))(passport);
+require(path.join(__dirname,'/files/passport/passport.js'))(passport);
+
 
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(express.static(path.join(__dirname, '/node_modules')))
+app.use(express.static(path.join(__dirname, '/node_modules')));
 
 
 
@@ -19,7 +21,9 @@ app.use(express.static(path.join(__dirname, '/node_modules')))
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 
-app.use(session({ secret: 'votingapp', resave: false, saveUninitialized: true }));
+
+
+app.use(session({ secret: 'votingapp', resave: false, saveUninitialized: false }));
 
 app.use(passport.initialize());
 app.use(passport.session());

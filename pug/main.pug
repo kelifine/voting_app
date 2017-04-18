@@ -1,0 +1,6 @@
+div(class="main container-fluid text-center")
+    h3 #{title}
+        ul(class="nav nav-pills nav-stacked" id="charts")
+            each item in items
+                li(role="presentation")
+                        a(href='/chart/'+item._id)=item.options.title

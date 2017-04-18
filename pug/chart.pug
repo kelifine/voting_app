@@ -1,0 +1,55 @@
+div(class="main container-fluid text-center")
+    div(class="choices")
+        h2
+        form(id="votefor" action="/vote" method="post")
+            div(class="title form-group")
+                p I'm voting for:
+                select(class="form-control" form="votefor" required name="thisvote" id="myvote" onchange="customVote()")
+                    option(selected disabled) Select Option
+                    each label in labels
+                        option(value=labels.indexOf(label))=label
+                    option(style=locals.button) create option
+            div(class="title form-group" id="newvote" style="display:none")    
+                label(for="customoption") Vote: 
+                input(name="customoption" type="customoption" placeholder="Type your option here")  
+            div(class="title form-group")
+                button(class="btn btn-default" type="submit" id="vote") Vote
+                p(id="novote") #{locals.alert}
+    div(class="chart")        
+    canvas(id="chartPic" width="60%" height="60%")
+    a(class="btn btn-danger" href="/remove" role="button" style=locals.button ) Remove poll
+    a(class="btn btn-primary" href="http://www.facebook.com/sharer/sharer.php?u="+locals.url+"&quote=Check out this poll" target="_blank" role="button" style=locals.button ) Share poll
+script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js")
+script.
+    var ctx = document.getElementById("chartPic").getContext('2d');
+       var chart = new Chart(ctx,  {
+            type: 'doughnut',
+            data: {
+                labels: !{JSON.stringify(locals.labels)},
+                datasets: [{
+                    label: 'Number of votes',
+                    data: !{locals.numbers},
+                    backgroundColor: !{JSON.stringify(locals.color)},
+                    borderColor: 'black',
+                    borderWidth: 1
+                }],
+                },
+            options: {
+                title: { 
+                    display: true,
+                    text: #{locals.title},
+                    fontSize: 40,
+                    padding: 60
+                },
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 40
+                    }
+                },
+                layout: {
+                    padding: 20
+                }
+            }
+        });
+    
