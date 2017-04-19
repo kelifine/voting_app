@@ -7,7 +7,6 @@ var session = require('express-session');
 var path = require('path');
 var app = express();
 var bodyParser = require('body-parser');
-require('dotenv').load();
 var routes = require(path.join(__dirname, '/files/routes.js'));
 require(path.join(__dirname,'/files/passport/passport.js'))(passport);
 
@@ -18,7 +17,7 @@ app.use(express.static(path.join(__dirname, '/node_modules')));
 
 
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGOLAB_URL);
 mongoose.Promise = global.Promise;
 
 
