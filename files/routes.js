@@ -48,7 +48,7 @@ function findAll (callback) {
 function addVote(thisvote, customoption, ip, callback) {
     Label.findById(chartid, function (err, label) {
         if (err) return console.log(err);
-        if (label.users.indexOf(ip)!==-1) {
+        if (label.users.indexOf(ip)===-1) {
             if (customoption==='') {
                 label.data.data[thisvote] +=1;
                 label.markModified('data.data');
